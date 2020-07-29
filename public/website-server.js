@@ -15,10 +15,11 @@ var credentials = {
     key: privateKey,
     cert: certificates
 };
+const PORT = process.env.PORT || 5000;
 var express = require('express');
 var app = express();
 
-var httpServer = http.createServer(app);
+//var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
 
 Object.keys(iface).forEach(function (ifname) {
@@ -31,13 +32,13 @@ Object.keys(iface).forEach(function (ifname) {
         console.log("");
         console.log("Welcome to the chat box");
         console.log("");
-        console.log("Test chat interface at: ", "https//localhost:8443");
+        console.log("Test chat interface at: ", "https//localhost:"+PORT);
         console.log("");
         if (alias >= 1) {
             console.log("Multiple ipv4 address were found");
-            console.log(ifname + ':' + alias, "https://" + iface.address + ":8443")
+            console.log(ifname + ':' + alias, "https://" + iface.address + ":"+PORT)
         } else {
-            console.log(ifname, "https://" + iface.address + ":8443");
+            console.log(ifname, "https://" + iface.address + ":"+PORT);
         }
         alias++;
     });
@@ -47,9 +48,9 @@ Object.keys(iface).forEach(function (ifname) {
 //Allow access from all device of the network
 //For http
 var LANaccess='0.0.0.0';
-httpServer.listen(8080,LANaccess);
+//httpServer.listen(PORT,LANaccess);
 //For https
-httpsServer.listen(8443,LANaccess);
+httpsServer.listen(PORT,LANaccess);
 
 app.get('/',function(req,res){
     res.sendFile(path.join(__dirname+'/index.html'));
