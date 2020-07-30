@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SecureCall</title>
+    <!-- Bootswatch CSS from cdn -->
+    <!-- Styling CSS is writen in Bootstrap 4-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/cyborg/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-4 col-lg-6">
+                <div class="text-center">
+                    <video id="my-camera" width="300" height="300" autoplay="autoplay" muted="true"
+                        class="center-block"></video>
+                    <h5><span class="invisible" id="connector_peer">You</span></h5>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-6">
+                <!-- Display video of the connected peer -->
+                <div class="text-center">
+                    <video id="peer-camera" width="300" height="300" autoplay="autoplay" class="center-block"></video>
+                    <h5><span class="badge badge-secondary" id="connected_peer"></span></h5>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <h2>SecureCall</h2><br>
+            <h4>Share the following ID with the pal that wants to talk with you</h4><br>
+            <h5><span id="peer-id-label" class="text-danger"></span></h5>
+        </div>
+        <div class="row">
+            <div style="width: 100%;">
+                <div class="form-horizontal" id="connection-form">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="name" class="col-lg-2 control-label">Username</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" name="name" id="name"
+                                    placeholder="Your random username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="peer_id" class="col-lg-2 control-label">Peer ID (id of your BRO)</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" name="peer_id" id="peer_id"
+                                    placeholder="Peer ID" autocomplete="off" autocorrect="off" autocapitalize="off"
+                                    spellcheck="false">
+
+                                <!-- Show message if someone connected to the client -->
+                                <div id="connected_peer_container" class="invisible">
+                                    An user is already connected to your session. Just provide a name to connect !
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-10 col-lg-offset-2">
+                                <button id="connect-to-peer-btn" class="btn btn-primary">Connect to Peer</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12">
+                <div id="chat" class="invisible">
+                    <div id="messages-container">
+                        <div class="list-group" id="messages"></div>
+                    </div>
+                    <div id="message-container">
+                        <div class="form-group">
+                            <label class="control-label">Live chat</label>
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <button id="call" class="btn btn-info">Call</button>
+                                </span>
+                                <input type="text" class="form-control" name="message" id="message"
+                                    placeholder="Type a message ...">
+                                <span class="input-group-btn">
+                                    <button id="send-message" class="btn btn-success">Send Message</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="resources/js/peerjs.min.js"></script>
+    <script src="resources/js/scripts.js"></script>
+</body>
+
+</html>

@@ -1,7 +1,0 @@
-{
-    "name": "peerjs-securecall-application-server",
-    "version": "1.0.0",
-    "dependencies": {
-        "peer": "^0.5.3"
-    }
-}
