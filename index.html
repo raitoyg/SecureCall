@@ -14,8 +14,8 @@
         <div class="row">
             <div class="col-md-4 col-lg-6">
                 <div class="text-center">
-                    <video id="my-camera" width="300" height="300" autoplay="autoplay" muted="true"
-                        class="center-block"></video>
+                    <video id="my-camera" width="300" height="300" autoplay playsinline muted="true" 
+                        class="center-block"></video> <!--Use playsinline to play video on safari-->
                     <h5><span class="invisible" id="connector_peer">You</span></h5>
                 </div>
             </div>
@@ -23,7 +23,7 @@
             <div class="col-md-4 col-lg-6">
                 <!-- Display video of the connected peer -->
                 <div class="text-center">
-                    <video id="peer-camera" width="300" height="300" autoplay="autoplay" class="center-block"></video>
+                    <video id="peer-camera" width="300" height="300" autoplay playsinline class="center-block"></video>
                     <h5><span class="badge badge-secondary" id="connected_peer"></span></h5>
                 </div>
             </div>

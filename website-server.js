@@ -1,31 +1,33 @@
-//SecureCall/public/website-server.js
+
+//Adding lib for video call and stuff
+var fs     = require('fs');
+var http   = require('http');
+var https   = require('https');
+var os     = require('os');
+var ifaces = os.networkInterfaces();
 var path = require('path');
-//Self-signed key for https
-//var privateKey = fs.readFileSync('certificates/SecureCall.key', 'utf-8');
-//var certificates = fs.readFileSync('certificates/SecureCall.crt', 'utf-8');
-/*
-var credentials = {
-    key: privateKey,
-    cert: certificates
-};*/
+//Server Lib
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 5000;
+//https server for localhost testing
+// var privateKey  = fs.readFileSync('certificates/SecureCall.key', 'utf8');
+// var certificate = fs.readFileSync('certificates/SecureCall.crt', 'utf8');
+
+// var credentials = {key: privateKey, cert: certificate};
 
 app.get('/', function (req, res) {
-    //res.send(__dirname + '/index.html');
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-app.listen(PORT,function(){
-    console.log('Server started on: '+PORT);
+//http server
+var LANtesting='0.0.0.0';
+http.createServer(app).listen(PORT,function(){
+    console.log('Listening at '+PORT);
 });
-//var httpServer = http.createServer(app);
-//var httpsServer = https.createServer(credentials, app);
-//Allow access from all device of the network
-//For http
-//var LANaccess = '0.0.0.0';
-//httpServer.listen(PORT,LANaccess);
-//For https
-//httpsServer.listen(PORT, LANaccess);
-app.use('/resources', express.static('./source'));
+//https server for localhost testing
+// https.createServer(credentials, app).listen(6969,LANtesting,function(){
+//     console.log('https server listening at: 6969');
+// });
+
+app.use('/resources', express.static('./public'));
