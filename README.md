@@ -1,5 +1,14 @@
-# SecureCall is a proprietary application that allow P2P video and messaging between computer
+# SecureCall is a proprietary application that allow P2P video and messaging between computer<br>
+<br>
+Technology:<br>
++Node.js<br>
++Peer.js<br>
++Angular<br>
 
-It uses nodejs, and Peerjs framework. That allow direct communication between computer.<br/>
-P/S: this repo is only for shits and giggles ;). I'm using this repo to practice my nodejs skillzzzzzz <br/>
-btw: if anyone want some good sheetz contact me with the same user name on Nulled or cracked.to<br/>
+
+This is a video chat app, that allow 2 people to talk to each other. I buld this to create a more secure channel of communication for other stuffz.<br>
+The peerjs server is the default one so you SHOULD change it to one off your privately owned server.<br>
+<br>
+<br>
+<br>
+Link for the working demo hosted on Heroku: https://securecall.herokuapp.com/
