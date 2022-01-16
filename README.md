@@ -12,3 +12,6 @@ The peerjs server is the default one so you SHOULD change it to one off your pri
 <br>
 <br>
 Link for the working demo hosted on Heroku: https://securecall.herokuapp.com/
+
+<br>
+To start locally type: node website-server.js
