@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     //Getting peer id
     peer.on('open', function (ShowId) {
-        document.getElementById('peer-id-label').innerHTML = 'This is YOUR ID: ' + peer.id;
+        document.getElementById('peer-id-label').innerHTML = peer.id;
     });
 
     //Establish connection
@@ -85,6 +85,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         alert('Incoming call');
         //Answer call with local stream
         call.answer(myStream);
+        const endCallBtn = document.querySelector('#endCall');
+        endCallBtn.disabled = false;
         //Recive data;
         call.on('stream', function (stream) {
             peerVideo.srcObject = stream;
@@ -98,15 +100,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
     //Add received and sent messages to chat box;
     function handleMessage(data) {
         var orientation = "text-left";
+        var color = "text-primary";
         //If message is yours, set text right;
         if (data.from == username) {
             orientation = 'text-right';
+            var color = "text-info";
         }
-        var messageHTML = '<a href="javascript:void(0);" class="list-group-item ' + orientation + '">';
+        var messageHTML = `<a href="#" class="list-group-item ${orientation} ${color}" style="text-decoration: none;">`;
         if (data.from != '') {
-            messageHTML += '<h4 class="list-group-item-heading">' + data.from + '</h4>';
-        } else messageHTML += '<h4 class="list-group-item-heading">' + 'Anonymous' + '</h4>';
-        messageHTML += '<p class="list-group-item-text">' + data.text + '</p>';
+            messageHTML += '<p class="list-group-item-heading">' + data.from + '</p>';
+        } else messageHTML += '<p class="list-group-item-heading">' + 'Anonymous' + '</p>';
+        messageHTML += '<p class="list-group-item-text display-4">' + data.text + '</p>';
         messageHTML += '</a>';
         document.getElementById("messages").innerHTML += messageHTML;
     }
@@ -158,8 +162,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         var call = peer.call(peer_id, myStream);
         call.on('stream', function (stream) {
             //Store in global refrence for later use
-            peerStream=stream
+            peerStream = stream
             peerVideo.srcObject = peerStream;//Display peer video
+            const endCallBtn = document.querySelector('#endCall');
+            endCallBtn.disabled = false;
         });
     }, false);
 

@@ -24,7 +24,7 @@
         }
 
         .tooltip-btn {
-            border-radius: 10px;            
+            border-radius: 10px;
         }
 
         .bdr-8 {
@@ -62,9 +62,10 @@
             <div class="container">
                 <h1 class="display-4 pb-4" style="color: #9933CC;"><i class="fas fa-fingerprint"></i>&nbsp;&nbsp;Your
                     secret connection ID</h1>
-                <p id="peer-id-label" class="lead">Generating...</p>
+                <p id="peer-id-label" class="lead display-4">Generating...</p>
                 <button id="regenID" class="btn btn-primary bdr-8 mt-3">
-                    <span><i class="fas fa-undo-alt"></i>&nbsp;&nbsp; Regenerate</span></button>
+                    <span><i class="fas fa-undo-alt"></i>&nbsp;&nbsp; Regenerate</span>
+                </button>
             </div>
         </div>
         <br>
@@ -77,7 +78,7 @@
                         class="center-block vid-frame">
                     </video>
                     <!--Use playsinline to play video on safari-->
-                    <h3 class="py-3"><span class="badge badge-primary px-4 py-2" style="border-radius: 10px;"
+                    <h3 class="py-3"><span class="badge badge-info px-4 py-2" style="border-radius: 10px;"
                             id="connector_peer">You</span></h3>
                     <div id="toolbar" class="d-flex flex-wrap justify-content-center">
                         <button type="button" class="btn btn-info mx-1 my-1 tooltip-btn" data-toggle="tooltip"
@@ -100,17 +101,23 @@
                     <video id="peer-camera" width="700" height="400" autoplay playsinline
                         class="center-block vid-frame">
                     </video>
-                    <h3 class="py-3"><span class="badge badge-primary px-4 py-2" style="border-radius: 10px;"
-                            id="connector_peer">Your peer</span></h3>
-                    <h4><span class="badge badge-secondary" id="connected_peer"></span></h4>
+
+                    <h3 class="py-3"><span class="badge badge-secondary" id="connected_peer"
+                            style="border-radius: 10px;">Your peer</span></h3>
                 </div>
             </div>
         </div>
         <hr>
         <div class="my-4 text-center">
-            <button id="call" class="btn btn-info" style="border-radius: 10%;"><span class=" display-2"><i
+            <button id="call" class="btn btn-info mx-4" style="border-radius: 10%;"><span class=" display-2"><i
                         class="fas fa-phone-alt"></i>
-                </span></button>
+                </span>
+            </button>
+            <button id="endCall" class="btn btn-danger mx-4" style="border-radius: 10%;" disabled=false>
+                <span class=" display-2">
+                    <i class="fas fa-window-close"></i>
+                </span>
+            </button>
         </div>
         <div class="row">
             <div class="w-100">
@@ -155,7 +162,7 @@
                         </div>
                         <div id="message-container">
                             <div class="form-group">
-                                <label class="control-label">Call and live chat</label>
+                                <label class="control-label">Live chat</label>
                                 <div class="input-group">
                                     <!-- <span class="input-group-btn"> -->
                                     <!-- </span> -->
@@ -191,6 +198,21 @@
     </footer>
     <script src="resources/js/peerjs.min.js"></script>
     <script src="resources/js/scripts.js"></script>
+    <script>
+        // handle regenerating ID
+        const regenBtn = document.querySelector('#regenID');
+        regenBtn.addEventListener('click', () => {
+            console.log('b4 load');
+            location.reload();
+            console.log('after load');
+        });
+        const endCallBtn = document.querySelector('#endCall');
+        endCallBtn.addEventListener('click', () => {
+            location.reload()
+            alert('Call ended!');
+        })
+
+    </script>
 </body>
 
 </html>
