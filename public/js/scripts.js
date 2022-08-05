@@ -12,8 +12,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     navigator.mediaDevices.getUserMedia = navigator.mediaDevices.getUserMedia || navigator.mediaDevices.webkitGetUserMedia || navigator.mediaDevices.mozGetUserMedia;//Browser patching
 
     var peer = new Peer({
-        key: 'peerjs',
-        host: 'scpeerjsserver.herokuapp.com',
         secure: true,
         port: 443,
         config: {
