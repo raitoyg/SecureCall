@@ -32,7 +32,20 @@ Link for the working demo hosted on Heroku: https://securecall.herokuapp.com/
 The peerjs server is the default one so you SHOULD change it to one off your privately owned server.<br>
 
 Go to: /home/raito/Documents/College Shitz/tmp/SecureCall/public/js/scripts.js<br>
-![](/home/raito/Pictures/Screenshot from 2022-08-05 13-04-27.png)<br>
+
+var peer = new Peer({<br>
+secure: true,<br>
+port: 443,<br>
+config: {<br>
+'iceServers': [<br>
+{ url: 'stun:stun.l.google.com:19302' },<br>
+{ url: 'stun:stun1.l.google.com:19302' },<br>
+{ url: 'stun:stun2.l.google.com:19302' },<br>
+{ url: 'stun:stun3.l.google.com:19302' },<br>
+{ url: 'stun:stun4.l.google.com:19302' },<br>
+
+
+
 Add host:"Yeh Host"<br>
 Add key:"Yeh Key"<br>
 Above secure:true
