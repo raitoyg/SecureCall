@@ -8,7 +8,7 @@
   "description": "It uses nodejs, and Peerjs framework. That allow direct communication between computer.<br/> P/S: this repo is only for shits and giggles ;). I'm using this repo to practice my nodejs skillzzzzzz <br/> btw: if anyone want some good sheetz contact me with the same user name on Nulled or cracked.to<br/>",
   "main": "website-server.js",
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.20"
   },
   "scripts": {
     "start": "node website-server.js"
